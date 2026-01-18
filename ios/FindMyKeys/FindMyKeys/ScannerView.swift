@@ -24,10 +24,14 @@ struct ScannerView: View {
                 // Minimal overlay placeholder (Stage 2 will add boxes + guidance)
                 VStack {
                     HStack {
-                        Text("Scanning…")
-                            .padding(10)
-                            .background(.ultraThinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Scanning…")
+                            Text("FPS: \(camera.fps, specifier: "%.1f")")
+                            Text("Frames: \(camera.frameCount)")
+                        }
+                        .padding(10)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                         Spacer()
                     }
                     .padding()
