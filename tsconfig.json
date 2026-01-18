@@ -1,0 +1,12 @@
+{
+  "extends": "expo/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["jest"],
+    "strict": true,
+    "jsx": "react",  // Enables JSX syntax in TypeScript
+    "allowJs": true, // Allows JavaScript files if any
+    "esModuleInterop": true, // Ensures module compatibility
+    "skipLibCheck": true, // Speeds up the build by skipping type checking on libraries
+    "moduleResolution": "node" // Ensures modules are resolved correctly
+  }
+}
