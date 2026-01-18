@@ -1,0 +1,6 @@
+The partner organization for this project is Levine Law (levinelegal.ca) and is being coordinated by:
+Primary Contact: Dr. Rachel Levine (rachel.levine@utoronto.ca). Postdoc at the Department of Computer Science at UofT.
+Secondary Contact: Matthew AJ Levine (matthew@levinelegal.ca). Barrister and Solicitor at Levine Law.
+
+TA Information:
+The TA for this project is Brian Ramprasad. Email: brianr@cs.toronto.edu
