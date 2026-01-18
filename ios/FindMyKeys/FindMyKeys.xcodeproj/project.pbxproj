@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A11B5F4E2BE0E8C500D1B7C4 /* FindMyKeysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */; };
+		A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */; };
+		A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */; };
+		A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */; };
+		A11B5F562BE0E8C500D1B7C4 /* ScannerStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F552BE0E8C500D1B7C4 /* ScannerStubView.swift */; };
+		A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A11B5F4A2BE0E8C500D1B7C4 /* FindMyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = FindMyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyKeysApp.swift; sourceTree = "<group>"; };
+		A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatThisDoesView.swift; sourceTree = "<group>"; };
+		A11B5F552BE0E8C500D1B7C4 /* ScannerStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerStubView.swift; sourceTree = "<group>"; };
+		A11B5F572BE0E8C500D1B7C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A11B5F472BE0E8C500D1B7C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A11B5F412BE0E8C500D1B7C4 = {
+			isa = PBXGroup;
+			children = (
+				A11B5F4C2BE0E8C500D1B7C4 /* FindMyKeys */,
+				A11B5F4B2BE0E8C500D1B7C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A11B5F4B2BE0E8C500D1B7C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A11B5F4A2BE0E8C500D1B7C4 /* FindMyKeys.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A11B5F4C2BE0E8C500D1B7C4 /* FindMyKeys */ = {
+			isa = PBXGroup;
+			children = (
+				A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */,
+				A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */,
+				A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */,
+				A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */,
+				A11B5F552BE0E8C500D1B7C4 /* ScannerStubView.swift */,
+				A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */,
+				A11B5F572BE0E8C500D1B7C4 /* Info.plist */,
+			);
+			path = FindMyKeys;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A11B5F492BE0E8C500D1B7C4 /* FindMyKeys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A11B5F5C2BE0E8C500D1B7C4 /* Build configuration list for PBXNativeTarget "FindMyKeys" */;
+			buildPhases = (
+				A11B5F462BE0E8C500D1B7C4 /* Sources */,
+				A11B5F472BE0E8C500D1B7C4 /* Frameworks */,
+				A11B5F482BE0E8C500D1B7C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindMyKeys;
+			productName = FindMyKeys;
+			productReference = A11B5F4A2BE0E8C500D1B7C4 /* FindMyKeys.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A11B5F422BE0E8C500D1B7C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					A11B5F492BE0E8C500D1B7C4 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = A11B5F452BE0E8C500D1B7C4 /* Build configuration list for PBXProject "FindMyKeys" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A11B5F412BE0E8C500D1B7C4;
+			productRefGroup = A11B5F4B2BE0E8C500D1B7C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A11B5F492BE0E8C500D1B7C4 /* FindMyKeys */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A11B5F482BE0E8C500D1B7C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A11B5F462BE0E8C500D1B7C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A11B5F4E2BE0E8C500D1B7C4 /* FindMyKeysApp.swift in Sources */,
+				A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */,
+				A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */,
+				A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */,
+				A11B5F562BE0E8C500D1B7C4 /* ScannerStubView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A11B5F5A2BE0E8C500D1B7C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FindMyKeys/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FindMyKeys;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A11B5F5B2BE0E8C500D1B7C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FindMyKeys/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FindMyKeys;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A11B5F5D2BE0E8C500D1B7C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A11B5F5E2BE0E8C500D1B7C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A11B5F452BE0E8C500D1B7C4 /* Build configuration list for PBXProject "FindMyKeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A11B5F5D2BE0E8C500D1B7C4 /* Debug */,
+				A11B5F5E2BE0E8C500D1B7C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A11B5F5C2BE0E8C500D1B7C4 /* Build configuration list for PBXNativeTarget "FindMyKeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A11B5F5A2BE0E8C500D1B7C4 /* Debug */,
+				A11B5F5B2BE0E8C500D1B7C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A11B5F422BE0E8C500D1B7C4 /* Project object */;
+}
