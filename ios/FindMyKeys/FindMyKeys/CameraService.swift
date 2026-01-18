@@ -1,17 +1,24 @@
 import AVFoundation
 import Foundation
 
-@MainActor
-final class CameraService: ObservableObject {
+final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "camera.session.queue")
+    private let videoOutputQueue = DispatchQueue(label: "camera.video.output.queue")
+    private let videoOutput = AVCaptureVideoDataOutput()
 
     @Published var isRunning: Bool = false
     @Published var errorMessage: String? = nil
+    @Published var fps: Double = 0
+    @Published var frameCount: Int = 0
 
     private var isConfigured = false
+    private var configurationError: String? = nil
+    private var lastFPSUpdateTime: CMTime?
+    private var framesSinceLastUpdate: Int = 0
+    private var totalFrames: Int = 0
 
-    func configureIfNeeded() {
+    private func configureIfNeeded() {
         guard !isConfigured else { return }
         isConfigured = true
 
@@ -25,7 +32,10 @@ final class CameraService: ObservableObject {
             position: .back
         ) else {
             session.commitConfiguration()
-            errorMessage = "No camera available on this device."
+            configurationError = "No camera available on this device."
+            DispatchQueue.main.async { [weak self] in
+                self?.errorMessage = "No camera available on this device."
+            }
             return
         }
 
@@ -34,27 +44,34 @@ final class CameraService: ObservableObject {
             if session.canAddInput(input) { session.addInput(input) }
         } catch {
             session.commitConfiguration()
-            errorMessage = "Failed to access camera input."
+            configurationError = "Failed to access camera input."
+            DispatchQueue.main.async { [weak self] in
+                self?.errorMessage = "Failed to access camera input."
+            }
             return
         }
 
         // Output (no processing yet; Stage 2 will use VideoDataOutput)
-        let videoOutput = AVCaptureVideoDataOutput()
         videoOutput.alwaysDiscardsLateVideoFrames = true
+        videoOutput.videoSettings = [
+            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA
+        ]
+        videoOutput.setSampleBufferDelegate(self, queue: videoOutputQueue)
         if session.canAddOutput(videoOutput) { session.addOutput(videoOutput) }
 
         session.commitConfiguration()
     }
 
     func start() {
-        configureIfNeeded()
-        guard errorMessage == nil else { return }
-
         sessionQueue.async { [weak self] in
             guard let self else { return }
+            self.configureIfNeeded()
+            guard self.configurationError == nil else { return }
             if !self.session.isRunning {
                 self.session.startRunning()
-                DispatchQueue.main.async { self.isRunning = true }
+                DispatchQueue.main.async { [weak self] in
+                    self?.isRunning = true
+                }
             }
         }
     }
@@ -64,8 +81,39 @@ final class CameraService: ObservableObject {
             guard let self else { return }
             if self.session.isRunning {
                 self.session.stopRunning()
-                DispatchQueue.main.async { self.isRunning = false }
+                DispatchQueue.main.async { [weak self] in
+                    self?.isRunning = false
+                }
             }
+        }
+    }
+
+    func captureOutput(
+        _ output: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from connection: AVCaptureConnection
+    ) {
+        let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+        framesSinceLastUpdate += 1
+        totalFrames += 1
+        let currentFrameCount = totalFrames
+
+        DispatchQueue.main.async { [weak self] in
+            self?.frameCount = currentFrameCount
+        }
+
+        if let lastTime = lastFPSUpdateTime {
+            let delta = CMTimeGetSeconds(timestamp - lastTime)
+            if delta >= 0.5, delta > 0 {
+                let currentFPS = Double(framesSinceLastUpdate) / delta
+                framesSinceLastUpdate = 0
+                lastFPSUpdateTime = timestamp
+                DispatchQueue.main.async { [weak self] in
+                    self?.fps = currentFPS
+                }
+            }
+        } else {
+            lastFPSUpdateTime = timestamp
         }
     }
 }
