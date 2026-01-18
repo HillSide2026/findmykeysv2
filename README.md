@@ -10,6 +10,30 @@
 ## Description about the project
 Find My Keys is a user-friendly mobile app available on Android (iOS soon) that assists users with identifying commonly misplaced personal belongings using voice commands and image recognition through the user's phone camera. This app is particularly helpful for older adults, neurodivergent individuals, and users who have difficulties with organization, attention, and executive function, as it provides a more user-friendly solution compared to traditional key finders which emit sounds and often alienate people who are not comfortable with high-tech gadgets. It provides users with a natural way of locating lost personal belongings by highlighting objects around them on-screen and allowing them to ask the app questions through voice commands for further help.
 ​
+## iOS app (MVP)
+
+Find My Keys is an on-device camera app that highlights selected everyday items in real time.  
+**Privacy:** No images, video, or detection data leave the device. The app is intended to work offline.
+
+### Supported items (MVP)
+- backpack
+- handbag
+- bottle
+- book
+- remote (UI may show “TV remote”)
+- cell phone
+- laptop
+- cup
+
+### Run (coming in PR #1)
+1. Open `ios/FindMyKeys.xcodeproj` in Xcode.
+2. Select a physical iPhone (camera features require a real device).
+3. Press Run.
+
+### Privacy + permissions expectations
+- The camera permission prompt should appear **only when the user starts scanning**, not on app launch.
+- The app should not make network calls.
+
 ## Key Features
  * **Account Management:** Users can create new accounts to store personalized inventories of personal belongings and customize their settings to personalize their experience using the app 
  * **Object Location via Voice Commands:** Users can verbally ask the app to find specific items (e.g. "Where are my keys"), and use the camera function to scan their surroundings to receive a clear verbal response of the item's location (e.g. "Your keys are on the right-most side of the 4th rack of the shelf") 
