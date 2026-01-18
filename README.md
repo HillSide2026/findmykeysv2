@@ -1,5 +1,6 @@
 # Find My Keys
 ---
+**Note:** This repository snapshot contains documentation only; application source directories have been removed.
 ## Partner Intro
  * The partner organization for this project is Russelhill Rd Ventures, which is a wholly owned subsidiary of HillSide Holdings. It is being developed under Dr. Rachel Levine and Matthew Levine.
  * Dr. Rachel Levine is a  legal anthropologist with  expertise in human-non-human interactions and applied/normative and meta-ethics. (**Email:** rachel.levine@utoronto.ca)
