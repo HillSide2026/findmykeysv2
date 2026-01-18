@@ -11,12 +11,16 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
     @Published var errorMessage: String? = nil
     @Published var fps: Double = 0
     @Published var frameCount: Int = 0
+    @Published var detections: [Detection] = []
+    @Published var modelError: String? = nil
 
     private var isConfigured = false
     private var configurationError: String? = nil
     private var lastFPSUpdateTime: CMTime?
     private var framesSinceLastUpdate: Int = 0
     private var totalFrames: Int = 0
+    private var detector: YOLODetector?
+    private var lastInferenceTime = CFAbsoluteTimeGetCurrent()
 
     private func configureIfNeeded() {
         guard !isConfigured else { return }
@@ -115,5 +119,43 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
         } else {
             lastFPSUpdateTime = timestamp
         }
+
+        let now = CFAbsoluteTimeGetCurrent()
+        guard now - lastInferenceTime >= 0.15 else { return }
+        lastInferenceTime = now
+
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+
+        Task.detached { [weak self] in
+            guard let self else { return }
+            do {
+                let dets = try await self.runDetection(pixelBuffer: pixelBuffer)
+                await MainActor.run {
+                    self.modelError = nil
+                    self.detections = dets
+                }
+            } catch YOLODetector.DetectorError.modelNotFound {
+                await MainActor.run {
+                    self.modelError = "Model not found. Add FindMyKeysYOLO.mlpackage to the app bundle."
+                    self.detections = []
+                }
+            } catch {
+                await MainActor.run {
+                    self.modelError = "Detection failed."
+                }
+            }
+        }
+    }
+
+    private func runDetection(pixelBuffer: CVPixelBuffer) async throws -> [Detection] {
+        if detector == nil {
+            detector = try YOLODetector()
+        }
+
+        guard let detector else {
+            return []
+        }
+
+        return try await detector.detect(pixelBuffer: pixelBuffer)
     }
 }

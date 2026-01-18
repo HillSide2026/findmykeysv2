@@ -15,6 +15,9 @@
 		A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */; };
 		00A15491861C449D8F4413E3 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F6E8AF0A44146987D1E52 /* CameraPreview.swift */; };
 		B78CB0B2E354455BB70077FC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561028300D3244E98D908090 /* CameraService.swift */; };
+		C1E9B0B4C0D54C2A8B8A7F41 /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */; };
+		C1E9B0B6C0D54C2A8B8A7F41 /* YOLODetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */; };
+		C1E9B0B8C0D54C2A8B8A7F41 /* DetectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		561028300D3244E98D908090 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		B20F6E8AF0A44146987D1E52 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
+		C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLODetector.swift; sourceTree = "<group>"; };
+		C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +72,10 @@
 				A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */,
 				561028300D3244E98D908090 /* CameraService.swift */,
 				B20F6E8AF0A44146987D1E52 /* CameraPreview.swift */,
+				C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */,
+				C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */,
 				A11B5F552BE0E8C500D1B7C4 /* ScannerView.swift */,
+				C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */,
 				A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */,
 				A11B5F572BE0E8C500D1B7C4 /* Info.plist */,
 			);
@@ -144,10 +153,13 @@
 				A11B5F4E2BE0E8C500D1B7C4 /* FindMyKeysApp.swift in Sources */,
 				B78CB0B2E354455BB70077FC /* CameraService.swift in Sources */,
 				00A15491861C449D8F4413E3 /* CameraPreview.swift in Sources */,
+				C1E9B0B4C0D54C2A8B8A7F41 /* Detection.swift in Sources */,
+				C1E9B0B8C0D54C2A8B8A7F41 /* DetectionOverlayView.swift in Sources */,
 				A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */,
 				A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */,
 				A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */,
 				A11B5F562BE0E8C500D1B7C4 /* ScannerView.swift in Sources */,
+				C1E9B0B6C0D54C2A8B8A7F41 /* YOLODetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

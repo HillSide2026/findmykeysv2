@@ -19,9 +19,10 @@ struct ScannerView: View {
                 } else {
                     CameraPreview(session: camera.session)
                         .ignoresSafeArea()
+                    DetectionOverlayView(detections: camera.detections)
+                        .ignoresSafeArea()
                 }
 
-                // Minimal overlay placeholder (Stage 2 will add boxes + guidance)
                 VStack {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
@@ -35,6 +36,17 @@ struct ScannerView: View {
                         Spacer()
                     }
                     .padding()
+
+                    if let modelError = camera.modelError {
+                        Text(modelError)
+                            .font(.callout).bold()
+                            .padding(10)
+                            .frame(maxWidth: .infinity)
+                            .background(.ultraThinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .padding(.horizontal)
+                    }
+
                     Spacer()
                 }
             }
