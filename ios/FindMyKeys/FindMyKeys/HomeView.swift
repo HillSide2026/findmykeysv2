@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 
 struct HomeView: View {
-    @State private var showScannerStub = false
+    @State private var showScanner = false
     @State private var showPermissionError = false
 
     var body: some View {
@@ -31,8 +31,8 @@ struct HomeView: View {
         }
         .padding()
         .navigationTitle("Home")
-        .sheet(isPresented: $showScannerStub) {
-            ScannerStubView()
+        .sheet(isPresented: $showScanner) {
+            ScannerView()
         }
         .alert("Camera Access Needed", isPresented: $showPermissionError) {
             Button("OK", role: .cancel) {}
@@ -44,12 +44,12 @@ struct HomeView: View {
     private func requestCameraPermissionThenOpen() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
-            showScannerStub = true
+            showScanner = true
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 DispatchQueue.main.async {
                     if granted {
-                        showScannerStub = true
+                        showScanner = true
                     } else {
                         showPermissionError = true
                     }
