@@ -1,10 +1,10 @@
 # Find My Keys
 ---
 ## Partner Intro
- * The partner organization for this project is [Levine Law](https://levinelegal.ca) and is being developed under Dr. Rachel Levine and Matthew Levine.
- * Dr. Rachel Levine is a trained legal anthropologist with established expertise in human-non-human interactions and applied/normative and meta-ethics. (**Email:** rachel.levine@utoronto.ca)
- * Matthew Levine is a lawyer with experience advising SaaS, Marketplace and App product teams on corporate and financing matters as well as privacy by design product development (**Email:** matthew@levinelegal.ca)
- * Levine Law provides legal services in corporate and contract law, and seeks to explore the expression of the benefits of anthropological research in the design of new technologies for various target user groups such as this app
+ * The partner organization for this project is Russelhill Rd Ventures, which is a wholly owned subsidiary of HillSide Holdings. It is being developed under Dr. Rachel Levine and Matthew Levine.
+ * Dr. Rachel Levine is a  legal anthropologist with  expertise in human-non-human interactions and applied/normative and meta-ethics. (**Email:** rachel.levine@utoronto.ca)
+ * Matthew Levine is a lawyer with experience advising SaaS, Marketplace and App product teams on corporate and financing matters as well as privacy by design product development (**Email:** matthew@levine-law.ca)
+ 
 
 ## Description about the project
 Find My Keys is a user-friendly mobile app available on Android (iOS soon) that assists users with identifying commonly misplaced personal belongings using voice commands and image recognition through the user's phone camera. This app is particularly helpful for older adults, neurodivergent individuals, and users who have difficulties with organization, attention, and executive function, as it provides a more user-friendly solution compared to traditional key finders which emit sounds and often alienate people who are not comfortable with high-tech gadgets. It provides users with a natural way of locating lost personal belongings by highlighting objects around them on-screen and allowing them to ask the app questions through voice commands for further help.
