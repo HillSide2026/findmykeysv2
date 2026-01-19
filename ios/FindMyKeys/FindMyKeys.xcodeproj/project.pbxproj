@@ -10,6 +10,10 @@
 		A11B5F4E2BE0E8C500D1B7C4 /* FindMyKeysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */; };
 		A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */; };
 		A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */; };
+		A11B5F602BE0E8C500D1B7C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F5F2BE0E8C500D1B7C4 /* ContentView.swift */; };
+		A11B5F622BE0E8C500D1B7C4 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */; };
+		A11B5F642BE0E8C500D1B7C4 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F632BE0E8C500D1B7C4 /* CameraManager.swift */; };
+		A11B5F662BE0E8C500D1B7C4 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F652BE0E8C500D1B7C4 /* CameraPreviewView.swift */; };
 		A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */; };
 		A11B5F562BE0E8C500D1B7C4 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F552BE0E8C500D1B7C4 /* ScannerView.swift */; };
 		A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */; };
@@ -25,7 +29,11 @@
 		A11B5F4A2BE0E8C500D1B7C4 /* FindMyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = FindMyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyKeysApp.swift; sourceTree = "<group>"; };
 		A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/HomeView.swift; sourceTree = "<group>"; };
+		A11B5F5F2BE0E8C500D1B7C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ScanView.swift; sourceTree = "<group>"; };
+		A11B5F632BE0E8C500D1B7C4 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera/CameraManager.swift; sourceTree = "<group>"; };
+		A11B5F652BE0E8C500D1B7C4 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera/CameraPreviewView.swift; sourceTree = "<group>"; };
 		A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatThisDoesView.swift; sourceTree = "<group>"; };
 		A11B5F552BE0E8C500D1B7C4 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		A11B5F572BE0E8C500D1B7C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,8 +78,10 @@
 			children = (
 				D3A1B2C3D4E5F60789012347 /* Models */,
 				A11B5F4D2BE0E8C500D1B7C4 /* FindMyKeysApp.swift */,
+				A11B5F5F2BE0E8C500D1B7C4 /* ContentView.swift */,
 				A11B5F4F2BE0E8C500D1B7C4 /* RootView.swift */,
-				A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */,
+				A11B5F672BE0E8C500D1B7C4 /* Views */,
+				A11B5F682BE0E8C500D1B7C4 /* Camera */,
 				A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */,
 				561028300D3244E98D908090 /* CameraService.swift */,
 				B20F6E8AF0A44146987D1E52 /* CameraPreview.swift */,
@@ -83,6 +93,24 @@
 				A11B5F572BE0E8C500D1B7C4 /* Info.plist */,
 			);
 			path = FindMyKeys;
+			sourceTree = "<group>";
+		};
+		A11B5F672BE0E8C500D1B7C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */,
+				A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A11B5F682BE0E8C500D1B7C4 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				A11B5F632BE0E8C500D1B7C4 /* CameraManager.swift */,
+				A11B5F652BE0E8C500D1B7C4 /* CameraPreviewView.swift */,
+			);
+			name = Camera;
 			sourceTree = "<group>";
 		};
 		D3A1B2C3D4E5F60789012347 /* Models */ = {
@@ -164,12 +192,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11B5F4E2BE0E8C500D1B7C4 /* FindMyKeysApp.swift in Sources */,
+				A11B5F602BE0E8C500D1B7C4 /* ContentView.swift in Sources */,
 				B78CB0B2E354455BB70077FC /* CameraService.swift in Sources */,
 				00A15491861C449D8F4413E3 /* CameraPreview.swift in Sources */,
+				A11B5F642BE0E8C500D1B7C4 /* CameraManager.swift in Sources */,
+				A11B5F662BE0E8C500D1B7C4 /* CameraPreviewView.swift in Sources */,
 				C1E9B0B4C0D54C2A8B8A7F41 /* Detection.swift in Sources */,
 				C1E9B0B8C0D54C2A8B8A7F41 /* DetectionOverlayView.swift in Sources */,
 				A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */,
 				A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */,
+				A11B5F622BE0E8C500D1B7C4 /* ScanView.swift in Sources */,
 				A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */,
 				A11B5F562BE0E8C500D1B7C4 /* ScannerView.swift in Sources */,
 				C1E9B0B6C0D54C2A8B8A7F41 /* YOLODetector.swift in Sources */,

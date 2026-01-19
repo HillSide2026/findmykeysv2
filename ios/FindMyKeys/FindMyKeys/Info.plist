@@ -25,6 +25,6 @@
         <string>UIInterfaceOrientationPortrait</string>
     </array>
     <key>NSCameraUsageDescription</key>
-    <string>Find My Keys uses the camera to scan for your selected item. Images stay on your device and are not saved or uploaded.</string>
+    <string>FMK uses the camera to detect items on-device. No images or data leave your device.</string>
 </dict>
 </plist>
