@@ -25,6 +25,6 @@
         <string>UIInterfaceOrientationPortrait</string>
     </array>
     <key>NSCameraUsageDescription</key>
-    <string>FMK uses the camera to detect items on-device. No images or data leave your device.</string>
+    <string>FMK uses the camera to help you find items that are visible around you.</string>
 </dict>
 </plist>

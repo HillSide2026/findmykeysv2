@@ -11,28 +11,7 @@ struct ScanView: View {
                 CameraPreviewView(session: camera.session)
                     .ignoresSafeArea()
             } else {
-                VStack(spacing: 16) {
-                    Text("Camera Access Needed")
-                        .font(.title2).bold()
-                    Text("Enable camera access to show the live preview.")
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(.secondary)
-
-                    if camera.authorizationStatus == .denied || camera.authorizationStatus == .restricted {
-                        Button("Open Settings") {
-                            openSettings()
-                        }
-                        .buttonStyle(.borderedProminent)
-                    } else {
-                        Button("Enable Camera") {
-                            Task {
-                                await requestAndStart()
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                }
-                .padding()
+                permissionContent
             }
 
             VStack {
@@ -65,11 +44,47 @@ struct ScanView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .task {
-            await requestAndStart()
+        .onAppear {
+            Task {
+                await requestAndStart()
+            }
         }
         .onDisappear {
             camera.stopSession()
+        }
+    }
+
+    @ViewBuilder
+    private var permissionContent: some View {
+        switch camera.authorizationStatus {
+        case .denied, .restricted:
+            VStack(spacing: 16) {
+                Text("Camera Access Needed")
+                    .font(.title2).bold()
+                Text("FMK needs camera access to show the live preview so you can find items.")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.secondary)
+                Button("Open Settings") {
+                    openSettings()
+                }
+                .buttonStyle(.borderedProminent)
+                Button("Not now") {
+                    dismiss()
+                }
+            }
+            .padding()
+        case .notDetermined:
+            VStack(spacing: 16) {
+                Text("Requesting Camera Access")
+                    .font(.title2).bold()
+                Text("Please respond to the system prompt to continue.")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.secondary)
+                ProgressView()
+            }
+            .padding()
+        default:
+            EmptyView()
         }
     }
 
