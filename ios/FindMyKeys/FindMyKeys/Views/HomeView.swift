@@ -3,7 +3,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Find My Keys")
+            Text("FindMyKeys")
                 .font(.largeTitle).bold()
 
             Text("Point your camera around your space to find missing items.")

@@ -58,21 +58,10 @@ struct ScanView: View {
     private var permissionContent: some View {
         switch camera.authorizationStatus {
         case .denied, .restricted:
-            VStack(spacing: 16) {
-                Text("Camera Access Needed")
-                    .font(.title2).bold()
-                Text("FMK needs camera access to show the live preview so you can find items.")
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.secondary)
-                Button("Open Settings") {
-                    openSettings()
-                }
-                .buttonStyle(.borderedProminent)
-                Button("Not now") {
-                    dismiss()
-                }
-            }
-            .padding()
+            PermissionDeniedView(
+                openSettings: openSettings,
+                dismiss: dismiss
+            )
         case .notDetermined:
             VStack(spacing: 16) {
                 Text("Requesting Camera Access")

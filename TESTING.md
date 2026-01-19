@@ -1,6 +1,8 @@
 # Testing
 
 ## Manual checks
+
+### Milestone 1 Camera
 - Fresh install: open app -> no camera prompt on launch.
 - Tap **Start scanning** -> system camera prompt appears.
 - Allow -> live preview appears.

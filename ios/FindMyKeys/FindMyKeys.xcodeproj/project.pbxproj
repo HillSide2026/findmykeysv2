@@ -14,6 +14,7 @@
 		A11B5F622BE0E8C500D1B7C4 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */; };
 		A11B5F642BE0E8C500D1B7C4 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F632BE0E8C500D1B7C4 /* CameraManager.swift */; };
 		A11B5F662BE0E8C500D1B7C4 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F652BE0E8C500D1B7C4 /* CameraPreviewView.swift */; };
+		A11B5F6B2BE0E8C500D1B7C4 /* PermissionDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F6A2BE0E8C500D1B7C4 /* PermissionDeniedView.swift */; };
 		A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */; };
 		A11B5F562BE0E8C500D1B7C4 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B5F552BE0E8C500D1B7C4 /* ScannerView.swift */; };
 		A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B5F582BE0E8C500D1B7C4 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ScanView.swift; sourceTree = "<group>"; };
 		A11B5F632BE0E8C500D1B7C4 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera/CameraManager.swift; sourceTree = "<group>"; };
 		A11B5F652BE0E8C500D1B7C4 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera/CameraPreviewView.swift; sourceTree = "<group>"; };
+		A11B5F6A2BE0E8C500D1B7C4 /* PermissionDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/PermissionDeniedView.swift; sourceTree = "<group>"; };
 		A11B5F532BE0E8C500D1B7C4 /* WhatThisDoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatThisDoesView.swift; sourceTree = "<group>"; };
 		A11B5F552BE0E8C500D1B7C4 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		A11B5F572BE0E8C500D1B7C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A11B5F512BE0E8C500D1B7C4 /* HomeView.swift */,
+				A11B5F6A2BE0E8C500D1B7C4 /* PermissionDeniedView.swift */,
 				A11B5F612BE0E8C500D1B7C4 /* ScanView.swift */,
 			);
 			name = Views;
@@ -201,6 +204,7 @@
 				C1E9B0B8C0D54C2A8B8A7F41 /* DetectionOverlayView.swift in Sources */,
 				A11B5F502BE0E8C500D1B7C4 /* RootView.swift in Sources */,
 				A11B5F522BE0E8C500D1B7C4 /* HomeView.swift in Sources */,
+				A11B5F6B2BE0E8C500D1B7C4 /* PermissionDeniedView.swift in Sources */,
 				A11B5F622BE0E8C500D1B7C4 /* ScanView.swift in Sources */,
 				A11B5F542BE0E8C500D1B7C4 /* WhatThisDoesView.swift in Sources */,
 				A11B5F562BE0E8C500D1B7C4 /* ScannerView.swift in Sources */,
