@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
         VStack(spacing: 20) {
             Text("FindMyKeys")
@@ -10,6 +12,23 @@ struct HomeView: View {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
+
+            HStack(spacing: 8) {
+                Text("Looking for:")
+                    .font(.subheadline.weight(.semibold))
+                Text(appState.selectedTarget.displayName)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            NavigationLink {
+                ItemsView()
+            } label: {
+                Text("Choose items")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .padding(.horizontal)
 
             NavigationLink {
                 ScanView()
@@ -24,5 +43,14 @@ struct HomeView: View {
         }
         .padding()
         .navigationTitle("Home")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+            }
+        }
     }
 }
