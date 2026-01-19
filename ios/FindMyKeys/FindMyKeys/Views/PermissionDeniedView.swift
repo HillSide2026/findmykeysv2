@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct PermissionDeniedView: View {
+    typealias DismissAction = () -> Void
+
     let openSettings: () -> Void
-    let dismiss: () -> Void
+    let dismiss: DismissAction
 
     var body: some View {
         VStack(spacing: 16) {

@@ -60,7 +60,7 @@ struct ScanView: View {
         case .denied, .restricted:
             PermissionDeniedView(
                 openSettings: openSettings,
-                dismiss: { dismiss() }
+                dismiss: { self.dismiss() }
             )
         case .notDetermined:
             VStack(spacing: 16) {
