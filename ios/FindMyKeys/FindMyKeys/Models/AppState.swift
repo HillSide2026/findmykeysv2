@@ -6,9 +6,9 @@ enum TargetItem: String, CaseIterable, Identifiable {
     case book
     case remote
     case handbag
-    case phone
-    case laptop
     case cup
+    case keys
+    case wallet
 
     var id: String { rawValue }
 
@@ -24,53 +24,47 @@ enum TargetItem: String, CaseIterable, Identifiable {
             return "Remote"
         case .handbag:
             return "Handbag"
-        case .phone:
-            return "Phone"
-        case .laptop:
-            return "Laptop"
         case .cup:
             return "Cup"
+        case .keys:
+            return "Keys"
+        case .wallet:
+            return "Wallet"
         }
     }
 
-    var systemImage: String {
+    var isBeta: Bool {
         switch self {
-        case .backpack:
-            return "backpack"
-        case .bottle:
-            return "drop"
-        case .book:
-            return "book"
-        case .remote:
-            return "tv"
-        case .handbag:
-            return "handbag"
-        case .phone:
-            return "iphone"
-        case .laptop:
-            return "laptopcomputer"
-        case .cup:
-            return "cup.and.saucer"
+        case .keys, .wallet:
+            return true
+        default:
+            return false
         }
     }
 }
 
 final class AppState: ObservableObject {
-    @Published var selectedTarget: TargetItem
+    @Published var selectedItemId: String?
+    @Published var selectedItemDisplayName: String
 
-    private let selectionKey = "selectedTargetItem"
+    let supportedItems: [TargetItem] = TargetItem.allCases
+
+    private let selectionKey = "selectedItemId"
 
     init() {
         if let savedValue = UserDefaults.standard.string(forKey: selectionKey),
            let savedTarget = TargetItem(rawValue: savedValue) {
-            selectedTarget = savedTarget
+            selectedItemId = savedTarget.id
+            selectedItemDisplayName = savedTarget.displayName
         } else {
-            selectedTarget = .backpack
+            selectedItemId = nil
+            selectedItemDisplayName = "Choose an item"
         }
     }
 
     func setTarget(_ item: TargetItem) {
-        selectedTarget = item
-        UserDefaults.standard.set(item.rawValue, forKey: selectionKey)
+        selectedItemId = item.id
+        selectedItemDisplayName = item.displayName
+        UserDefaults.standard.set(item.id, forKey: selectionKey)
     }
 }
