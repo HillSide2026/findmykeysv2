@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ScanView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var appState: AppState
     @StateObject private var camera = CameraManager()
 
     var body: some View {
@@ -39,6 +40,14 @@ struct ScanView: View {
                         .clipShape(Capsule())
                         .padding(.top, 8)
                 }
+
+                Text("Target: \(appState.selectedTarget.displayName)")
+                    .font(.caption.weight(.semibold))
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Capsule())
+                    .padding(.top, 8)
 
                 Spacer()
             }
