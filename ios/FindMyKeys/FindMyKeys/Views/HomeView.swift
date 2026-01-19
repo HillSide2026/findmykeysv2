@@ -57,5 +57,23 @@ struct HomeView: View {
             .padding()
         }
         .navigationTitle("Home")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink {
+                    ItemsView()
+                } label: {
+                    Label("Items", systemImage: "square.grid.2x2")
+                }
+            }
+
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "gear")
+                }
+                .accessibilityLabel("Settings")
+            }
+        }
     }
 }
