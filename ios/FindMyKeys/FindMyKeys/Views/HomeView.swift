@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject private var appState: AppState
 
     var body: some View {
@@ -43,6 +44,31 @@ struct HomeView: View {
                 }
                 .padding(.horizontal)
 
+            HStack(spacing: 8) {
+                Text("Looking for:")
+                    .font(.subheadline.weight(.semibold))
+                Text(appState.selectedTarget.displayName)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            NavigationLink {
+                ItemsView()
+            } label: {
+                Text("Choose items")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .padding(.horizontal)
+
+            NavigationLink {
+                ScanView()
+            } label: {
+                Text("Start scanning")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.horizontal)
                 NavigationLink {
                     ScanView()
                 } label: {
@@ -58,21 +84,12 @@ struct HomeView: View {
         }
         .navigationTitle("Home")
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                NavigationLink {
-                    ItemsView()
-                } label: {
-                    Label("Items", systemImage: "square.grid.2x2")
-                }
-            }
-
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {
                     SettingsView()
                 } label: {
-                    Image(systemName: "gear")
+                    Image(systemName: "gearshape")
                 }
-                .accessibilityLabel("Settings")
             }
         }
     }
