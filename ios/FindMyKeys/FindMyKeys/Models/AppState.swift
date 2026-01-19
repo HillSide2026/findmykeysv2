@@ -1,60 +1,70 @@
 import SwiftUI
 
 enum TargetItem: String, CaseIterable, Identifiable {
-    case backpack, bottle, book, remote, handbag
-    case keys, wallet
+    case backpack
+    case bottle
+    case book
+    case remote
+    case handbag
     case cup
+    case keys
+    case wallet
 
     var id: String { rawValue }
 
     var displayName: String {
         switch self {
+        case .backpack:
+            return "Backpack"
+        case .bottle:
+            return "Bottle"
+        case .book:
+            return "Book"
+        case .remote:
+            return "Remote"
+        case .handbag:
+            return "Handbag"
+        case .cup:
+            return "Cup"
         case .keys:
-            return "Keys (Beta)"
+            return "Keys"
         case .wallet:
-            return "Wallet (Beta)"
-        default:
-            return rawValue.capitalized
+            return "Wallet"
         }
     }
 
-    var systemImage: String {
+    var isBeta: Bool {
         switch self {
-        case .backpack:
-            return "backpack"
-        case .bottle:
-            return "drop.fill"
-        case .book:
-            return "book"
-        case .remote:
-            return "tv"
-        case .handbag:
-            return "handbag"
-        case .keys:
-            return "key.fill"
-        case .wallet:
-            return "wallet.pass.fill"
-        case .cup:
-            return "cup.and.saucer"
+        case .keys, .wallet:
+            return true
+        default:
+            return false
         }
     }
 }
 
 final class AppState: ObservableObject {
-    @Published var selectedTarget: TargetItem {
-        didSet { save() }
-    }
+    @Published var selectedItemId: String?
+    @Published var selectedItemDisplayName: String
+
+    let supportedItems: [TargetItem] = TargetItem.allCases
+
+    private let selectionKey = "selectedItemId"
 
     init() {
-        if let raw = UserDefaults.standard.string(forKey: "selectedTargetItem"),
-           let item = TargetItem(rawValue: raw) {
-            self.selectedTarget = item
+        if let savedValue = UserDefaults.standard.string(forKey: selectionKey),
+           let savedTarget = TargetItem(rawValue: savedValue) {
+            selectedItemId = savedTarget.id
+            selectedItemDisplayName = savedTarget.displayName
         } else {
-            self.selectedTarget = .backpack
+            selectedItemId = nil
+            selectedItemDisplayName = "Choose an item"
         }
     }
 
-    private func save() {
-        UserDefaults.standard.set(selectedTarget.rawValue, forKey: "selectedTargetItem")
+    func setTarget(_ item: TargetItem) {
+        selectedItemId = item.id
+        selectedItemDisplayName = item.displayName
+        UserDefaults.standard.set(item.id, forKey: selectionKey)
     }
 }
