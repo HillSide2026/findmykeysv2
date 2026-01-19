@@ -45,7 +45,7 @@
 		C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
 		C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLODetector.swift; sourceTree = "<group>"; };
 		C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlayView.swift; sourceTree = "<group>"; };
-		F1A2B3C4D5E6F7A8B9C0D1E2 /* FindMyKeysYOLO.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper.mlpackage; path = FindMyKeysYOLO.mlpackage; sourceTree = "<group>"; };
+		F1A2B3C4D5E6F7A8B9C0D1E2 /* FindMyKeysYOLO.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper.mlpackage; name = FindMyKeysYOLO.mlpackage; path = FindMyKeysYOLO.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
