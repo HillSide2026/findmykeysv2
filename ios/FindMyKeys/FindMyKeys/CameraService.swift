@@ -13,6 +13,8 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
     @Published var frameCount: Int = 0
     @Published var detections: [Detection] = []
     @Published var modelError: String? = nil
+    @Published var torchAvailable: Bool = false
+    @Published var torchEnabled: Bool = false
 
     private var isConfigured = false
     private var configurationError: String? = nil
@@ -21,6 +23,7 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
     private var totalFrames: Int = 0
     private var detector: YOLODetector?
     private var lastInferenceTime = CFAbsoluteTimeGetCurrent()
+    private var videoDevice: AVCaptureDevice?
 
     private func configureIfNeeded() {
         guard !isConfigured else { return }
@@ -37,8 +40,11 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
         ) else {
             session.commitConfiguration()
             configurationError = "No camera available on this device."
+            videoDevice = nil
             DispatchQueue.main.async { [weak self] in
                 self?.errorMessage = "No camera available on this device."
+                self?.torchAvailable = false
+                self?.torchEnabled = false
             }
             return
         }
@@ -46,11 +52,14 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
         do {
             let input = try AVCaptureDeviceInput(device: device)
             if session.canAddInput(input) { session.addInput(input) }
+            videoDevice = device
         } catch {
             session.commitConfiguration()
             configurationError = "Failed to access camera input."
             DispatchQueue.main.async { [weak self] in
                 self?.errorMessage = "Failed to access camera input."
+                self?.torchAvailable = false
+                self?.torchEnabled = false
             }
             return
         }
@@ -64,6 +73,7 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
         if session.canAddOutput(videoOutput) { session.addOutput(videoOutput) }
 
         session.commitConfiguration()
+        updateTorchAvailability()
     }
 
     func start() {
@@ -84,10 +94,60 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
         sessionQueue.async { [weak self] in
             guard let self else { return }
             if self.session.isRunning {
+                self.setTorchEnabledOnQueue(enabled: false)
                 self.session.stopRunning()
                 DispatchQueue.main.async { [weak self] in
                     self?.isRunning = false
                 }
+            }
+        }
+    }
+
+    func updateTorchAvailability() {
+        let available = videoDevice?.hasTorch == true && videoDevice?.isTorchAvailable == true
+        DispatchQueue.main.async { [weak self] in
+            self?.torchAvailable = available
+            if !available {
+                self?.torchEnabled = false
+            }
+        }
+    }
+
+    func setTorch(enabled: Bool) {
+        sessionQueue.async { [weak self] in
+            self?.setTorchEnabledOnQueue(enabled: enabled)
+        }
+    }
+
+    func toggleTorch() {
+        setTorch(enabled: !torchEnabled)
+    }
+
+    private func setTorchEnabledOnQueue(enabled: Bool) {
+        guard let device = videoDevice else { return }
+        guard device.hasTorch else {
+            DispatchQueue.main.async { [weak self] in
+                self?.torchAvailable = false
+                self?.torchEnabled = false
+            }
+            return
+        }
+
+        do {
+            try device.lockForConfiguration()
+            defer { device.unlockForConfiguration() }
+            if enabled {
+                try device.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
+            } else {
+                device.torchMode = .off
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.torchEnabled = enabled
+            }
+        } catch {
+            DispatchQueue.main.async { [weak self] in
+                self?.torchEnabled = false
+                self?.errorMessage = "Torch error: \(error.localizedDescription)"
             }
         }
     }
