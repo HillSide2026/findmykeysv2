@@ -50,6 +50,27 @@ struct ScannerView: View {
                     Spacer()
                 }
             }
+            .overlay(alignment: .topTrailing) {
+                if camera.torchAvailable {
+                    Button {
+                        camera.toggleTorch()
+                    } label: {
+                        Image(
+                            systemName: camera.torchEnabled
+                                ? "flashlight.on.fill"
+                                : "flashlight.off.fill"
+                        )
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .padding(12)
+                        .background(.black.opacity(0.6))
+                        .clipShape(Circle())
+                    }
+                    .padding(.trailing, 16)
+                    .padding(.top, 16)
+                    .accessibilityLabel(camera.torchEnabled ? "Torch on" : "Torch off")
+                }
+            }
             .navigationTitle("Scan")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -57,7 +78,10 @@ struct ScannerView: View {
                 }
             }
             .onAppear { camera.start() }
-            .onDisappear { camera.stop() }
+            .onDisappear {
+                camera.setTorch(enabled: false)
+                camera.stop()
+            }
         }
     }
 }
