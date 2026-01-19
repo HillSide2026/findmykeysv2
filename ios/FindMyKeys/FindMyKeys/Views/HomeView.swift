@@ -6,7 +6,7 @@ struct HomeView: View {
             Text("Find My Keys")
                 .font(.largeTitle).bold()
 
-            Text("On-device detection. No data leaves your phone.")
+            Text("Point your camera around your space to find missing items.")
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
@@ -14,7 +14,7 @@ struct HomeView: View {
             NavigationLink {
                 ScanView()
             } label: {
-                Text("Start Scan")
+                Text("Start scanning")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
