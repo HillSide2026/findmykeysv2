@@ -3,34 +3,38 @@ import Foundation
 import Vision
 
 actor YOLODetector {
-    enum DetectorError: Error {
-        case modelNotFound
-        case modelLoadFailed
-    }
-
-    private let vnModel: VNCoreMLModel
+    private static var hasLoggedMissingModel = false
+    private let vnModel: VNCoreMLModel?
     /// Configure these once you know exact YOLO label strings.
     private let allowedLabels: Set<String>
+    let isAvailable: Bool
 
-    init(modelName: String = "FindMyKeysYOLO", allowedLabels: Set<String> = []) throws {
+    init(modelName: String = "FindMyKeysYOLO", allowedLabels: Set<String> = []) {
         self.allowedLabels = allowedLabels
 
-        guard let url = Bundle.main.url(forResource: modelName, withExtension: "mlpackage") ??
-            Bundle.main.url(forResource: modelName, withExtension: "mlmodelc") else {
-            throw DetectorError.modelNotFound
+        guard let url = Bundle.main.url(forResource: modelName, withExtension: "mlmodelc") else {
+            self.vnModel = nil
+            self.isAvailable = false
+            YOLODetector.logMissingModelOnce()
+            return
         }
 
-        let mlModel: MLModel
         do {
-            mlModel = try MLModel(contentsOf: url)
+            let mlModel = try MLModel(contentsOf: url)
+            self.vnModel = try VNCoreMLModel(for: mlModel)
+            self.isAvailable = true
         } catch {
-            throw DetectorError.modelLoadFailed
+            self.vnModel = nil
+            self.isAvailable = false
+            YOLODetector.logMissingModelOnce()
         }
-
-        self.vnModel = try VNCoreMLModel(for: mlModel)
     }
 
     func detect(pixelBuffer: CVPixelBuffer) throws -> [Detection] {
+        guard isAvailable, let vnModel else {
+            return []
+        }
+
         let request = VNCoreMLRequest(model: vnModel)
         request.imageCropAndScaleOption = .scaleFill
 
@@ -52,5 +56,11 @@ actor YOLODetector {
         }
 
         return detections
+    }
+
+    private static func logMissingModelOnce() {
+        guard !hasLoggedMissingModel else { return }
+        hasLoggedMissingModel = true
+        print("Model not found; detection disabled.")
     }
 }

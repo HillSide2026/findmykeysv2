@@ -130,14 +130,14 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
             guard let self else { return }
             do {
                 let dets = try await self.runDetection(pixelBuffer: pixelBuffer)
+                let modelUnavailable = self.detector?.isAvailable == false
                 await MainActor.run {
-                    self.modelError = nil
+                    if modelUnavailable {
+                        self.modelError = "Detection model not installed."
+                    } else {
+                        self.modelError = nil
+                    }
                     self.detections = dets
-                }
-            } catch YOLODetector.DetectorError.modelNotFound {
-                await MainActor.run {
-                    self.modelError = "Model not found. Add FindMyKeysYOLO.mlpackage to the app bundle."
-                    self.detections = []
                 }
             } catch {
                 await MainActor.run {
@@ -149,7 +149,7 @@ final class CameraService: NSObject, ObservableObject, AVCaptureVideoDataOutputS
 
     private func runDetection(pixelBuffer: CVPixelBuffer) async throws -> [Detection] {
         if detector == nil {
-            detector = try YOLODetector()
+            detector = YOLODetector()
         }
 
         guard let detector else {
