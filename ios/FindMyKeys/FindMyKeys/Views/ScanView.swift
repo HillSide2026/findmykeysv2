@@ -5,6 +5,7 @@ struct ScanView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var appState: AppState
     @StateObject private var camera = CameraManager()
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
         ZStack {
@@ -47,6 +48,7 @@ struct ScanView: View {
                     .padding(.vertical, 6)
                     .background(.ultraThinMaterial)
                     .clipShape(Capsule())
+                    .padding(.top, camera.isRunning ? 4 : 8)
                     .padding(.top, 8)
 
                 Spacer()
