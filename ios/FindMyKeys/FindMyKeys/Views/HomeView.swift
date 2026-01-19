@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject private var appState: AppState
 
     var body: some View {
@@ -84,7 +83,14 @@ struct HomeView: View {
         }
         .navigationTitle("Home")
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink {
+                    ItemsView()
+                } label: {
+                    Image(systemName: "square.grid.2x2")
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
                     SettingsView()
                 } label: {
