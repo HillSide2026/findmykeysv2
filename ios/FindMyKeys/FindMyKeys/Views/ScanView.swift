@@ -10,7 +10,7 @@ struct ScanView: View {
             if camera.authorizationStatus == .authorized {
                 CameraPreviewView(session: camera.session)
                     .ignoresSafeArea()
-            } else {
+            } else if camera.lastError == nil {
                 permissionContent
             }
 
@@ -30,7 +30,7 @@ struct ScanView: View {
                 }
                 .padding([.top, .leading])
 
-                if camera.isSessionRunning {
+                if camera.isRunning {
                     Text("Camera Ready")
                         .font(.caption.weight(.semibold))
                         .padding(.horizontal, 10)
@@ -41,6 +41,12 @@ struct ScanView: View {
                 }
 
                 Spacer()
+            }
+
+            if let lastError = camera.lastError {
+                errorOverlay(message: lastError)
+            } else if camera.authorizationStatus == .authorized && !camera.isRunning {
+                startingOverlay
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -83,6 +89,37 @@ struct ScanView: View {
         guard authorized else { return }
         camera.configureSession()
         camera.startSession()
+    }
+
+    @ViewBuilder
+    private func errorOverlay(message: String) -> some View {
+        VStack(spacing: 12) {
+            Text("Camera unavailable")
+                .font(.title3.bold())
+            Text(message)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.secondary)
+            if camera.authorizationStatus == .denied {
+                Button("Open Settings") {
+                    openSettings()
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
+        .padding(24)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .padding()
+    }
+
+    private var startingOverlay: some View {
+        VStack(spacing: 12) {
+            Text("Starting camera…")
+                .font(.title3.bold())
+            ProgressView()
+        }
+        .padding(24)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .padding()
     }
 
     private func openSettings() {
