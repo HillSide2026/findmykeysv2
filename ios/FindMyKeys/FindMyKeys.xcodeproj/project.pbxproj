@@ -23,7 +23,7 @@
 		C1E9B0B4C0D54C2A8B8A7F41 /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */; };
 		C1E9B0B6C0D54C2A8B8A7F41 /* YOLODetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */; };
 		C1E9B0B8C0D54C2A8B8A7F41 /* DetectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */; };
-		D3A1B2C3D4E5F60789012346 /* FindMyKeysYOLO.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = D3A1B2C3D4E5F60789012345 /* FindMyKeysYOLO.mlpackage */; };
+		F1A2B3C4D5E6F7A8B9C0D1E3 /* FindMyKeysYOLO.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = F1A2B3C4D5E6F7A8B9C0D1E2 /* FindMyKeysYOLO.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		C1E9B0B3C0D54C2A8B8A7F41 /* Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
 		C1E9B0B5C0D54C2A8B8A7F41 /* YOLODetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLODetector.swift; sourceTree = "<group>"; };
 		C1E9B0B7C0D54C2A8B8A7F41 /* DetectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlayView.swift; sourceTree = "<group>"; };
-		D3A1B2C3D4E5F60789012345 /* FindMyKeysYOLO.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper.mlmodel; path = Models/FindMyKeysYOLO.mlpackage; sourceTree = "<group>"; };
+		F1A2B3C4D5E6F7A8B9C0D1E2 /* FindMyKeysYOLO.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper.mlpackage; path = FindMyKeysYOLO.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +119,7 @@
 		D3A1B2C3D4E5F60789012347 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D3A1B2C3D4E5F60789012345 /* FindMyKeysYOLO.mlpackage */,
+				F1A2B3C4D5E6F7A8B9C0D1E2 /* FindMyKeysYOLO.mlpackage */,
 			);
 			name = Models;
 			path = Models;
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11B5F592BE0E8C500D1B7C4 /* Assets.xcassets in Resources */,
-				D3A1B2C3D4E5F60789012346 /* FindMyKeysYOLO.mlpackage in Resources */,
+				F1A2B3C4D5E6F7A8B9C0D1E3 /* FindMyKeysYOLO.mlpackage in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
