@@ -82,6 +82,9 @@ const styles = StyleSheet.create({
     marginVertical: 24,
     marginHorizontal: 24,
   },
+  list: {
+    flex: 1,
+  },
   listHeader: {
     flexDirection: "row",
     justifyContent: "flex-end",
