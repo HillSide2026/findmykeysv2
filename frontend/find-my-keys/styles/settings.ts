@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // backgroundColor: 'white',
     paddingHorizontal: 20,
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
   profileSection: {
     alignItems: "center",
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   settingsList: {
+    flex: 1,
     backgroundColor: "#fafafa",
     borderRadius: 10,
     padding: 10,

@@ -535,6 +535,7 @@ const ObjectsScreen: React.FC = () => {
           keyExtractor={(item) =>
             item.id ? item.id.toString() : Math.random().toString()
           }
+          style={styles.list}
           ListHeaderComponent={
             <View style={styles.listHeader}>
               <Text
