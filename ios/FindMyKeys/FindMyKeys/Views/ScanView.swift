@@ -42,6 +42,14 @@ struct ScanView: View {
                         .padding(.top, 8)
                 }
 
+                Text("Auth: \(String(describing: AVCaptureDevice.authorizationStatus(for: .video)))")
+                    .font(.caption2.weight(.semibold))
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 6)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Capsule())
+                    .padding(.top, camera.isRunning ? 4 : 8)
+
                 Text("Target: \(appState.selectedTarget.displayName)")
                     .font(.caption.weight(.semibold))
                     .padding(.horizontal, 10)

@@ -123,6 +123,8 @@ final class CameraManager: NSObject, ObservableObject {
         sessionQueue.async { [weak self] in
             guard let self else { return }
             print("Camera startSession called.")
+            print("Camera startSession inputs: \(self.session.inputs)")
+            print("Camera startSession outputs: \(self.session.outputs)")
             if !self.session.isRunning {
                 self.session.startRunning()
             }
